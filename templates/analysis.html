@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberStego - Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+
+<body>
+      <nav class="navbar">
+            <div class="logo">🔒 CyberStego</div>
+            <ul>
+                  <li><a href="{{ url_for('home') }}">Dashboard</a></li>
+                  <li><a href="{{ url_for('analysis_page') }}" class="active">Steganography</a></li>
+                  <li><a href="{{ url_for('profile_page') }}">Profile</a></li>
+            </ul>
+            <div class="theme-toggle">
+            <div class="toggle-circle"></div>
+            </div>
+            </nav>
+
+      <section class="analysis-tool">
+            <h1 align="center">🧪 Steganography Analysis Tool</h1>
+
+            <div class="image-preview-container">
+                  <img id="imagePreview" src="" alt="Image Preview" style="display: none;" />
+                  </div>
+
+            <div class="upload-box">
+                  <label class="custom-file-upload">
+                        📤 Choose Image
+                        <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)">
+                  </label>
+
+                  <button class="analyze-btn" onclick="analyzeImage()">🔍 Analyze</button>
+                  <button class="pdf-btn" onclick="generatePDF()">📑 Generate PDF Report</button>
+
+                  <div id="result"></div> </div>
+      </section>
+</body>
+</html>

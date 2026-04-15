@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberStego - Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body.login-page { /* Reuse login page styles */
+            font-family: 'Inter', sans-serif;
+            background-color: #F3F4F6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+         .login-logo-text {
+             font-size: 2rem;
+             font-weight: 700;
+             color: #333;
+             letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body class="login-page">
+    <div class="login-container card-shadow">
+        <div class="login-header">
+            <span class="login-logo-text">🔒 CyberStego</span>
+             <h2 style="margin-top: 0.5rem; color: #555;">Create Account</h2>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash-{{ category if category else 'info' }}">
+                  {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('register') }}" class="login-form">
+            <input type="text" name="username" class="login-input" placeholder="Choose Username" required>
+            <input type="password" name="password" class="login-input" placeholder="Choose Password" required>
+            <button type="submit" class="login-button primary">Register</button>
+            <a href="{{ url_for('login') }}" class="login-button tertiary" style="text-decoration: none; padding-top: 10px; padding-bottom: 10px;">Back to Login</a>
+        </form>
+    </div>
+</body>
+</html>

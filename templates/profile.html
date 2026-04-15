@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberStego - Profile</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🔒 CyberStego</div>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Dashboard</a></li>
+      <li><a href="{{ url_for('analysis_page') }}">Steganography</a></li>
+      <li><a href="{{ url_for('profile_page') }}" class="active">Profile</a></li>
+    </ul>
+     <div class="theme-toggle">
+         <div class="toggle-circle"></div>
+     </div>
+  </nav>
+
+  <section class="profile">
+    <div class="profile-header">
+      <div class="avatar">👤</div>
+      <h2>{{ session.username | default('User') }}</h2>
+      <p class="role">User</p>
+    </div>
+
+    <section class="profile-stats">
+        <h1>Your Stats</h1>
+        <div class="stats">
+          <div class="stat">
+            <h3>📊 Total Analyses</h3>
+            <strong>{{ user['total_analyses'] if user else '0' }}</strong>
+          </div>
+          <div class="stat">
+            <h3>✅ Stego Detections</h3>
+            <strong>{{ user['stego_detections'] if user else '0' }}</strong>
+          </div>
+          <div class="stat">
+            <h3>📑 PDF Reports</h3>
+            <strong>{{ user['pdf_reports'] if user else '0' }}</strong>
+          </div>
+        </div>
+    </section>
+
+    <div class="account-info">
+       <p>🟢 Status: <strong>Logged In</strong></p>
+       <p>📅 Member since: <strong>2024-01-15</strong></p> <p>
+         <span class="badge premium">🌟 Premium Member</span>
+         <span class="badge verified">✔ Verified Account</span>
+       </p>
+       <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+    </div>
+
+     <section class="raw-data-log">
+       <h2>Your Analysis Log</h2>
+       <p>This is a raw log of all analyses you have run.</p>
+       <div class="table-container">
+         <table>
+           <thead>
+             <tr>
+               <th>ID</th>
+               <th>Timestamp</th>
+               <th>Filename</th>
+               <th>Model Score (Raw)</th>
+               <th>Final Prediction</th>
+               <th>Message Found</th>
+             </tr>
+           </thead>
+           <tbody>
+             {% for analysis in analyses %}
+             <tr>
+               <td>{{ analysis['id'] }}</td>
+               <td>{{ analysis['timestamp'] }}</td>
+               <td>{{ analysis['filename'] }}</td>
+               <td>{{ analysis['model_score'] }}</td>
+               <td class="{{ 'stego-text' if analysis['message_found'] else 'clean-text' }}">
+                 {{ analysis['final_prediction'] }}
+               </td>
+               <td>{{ 'Yes' if analysis['message_found'] else 'No' }}</td>
+             </tr>
+             {% else %} <tr>
+               <td colspan="6">No analyses logged yet.</td>
+             </tr>
+             {% endfor %}
+           </tbody>
+         </table>
+       </div>
+     </section>
+  </section>
+</body>
+</html>

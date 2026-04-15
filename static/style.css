@@ -1,0 +1,1079 @@
+/* ===== ROOT VARIABLES ===== */
+:root {
+  --primary: #2563eb;
+  --background: #f5f7fa;
+  --text: #1e293b;
+  --card-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body.dark {
+  --background: #1e293b;
+  --text: #f5f7fa;
+  --card-bg: #2d3b55;
+  --shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 5%;
+  background: linear-gradient(90deg, #2563eb, #1e40af);
+  color: #fff;
+}
+
+.navbar .logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #dbeafe;
+}
+
+.navbar ul li a.active {
+  border-bottom: 2px solid #fff;
+}
+
+/* ===== DARK/LIGHT TOGGLE ===== */
+.theme-toggle {
+  width: 50px;
+  height: 25px;
+  background: var(--primary);
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.toggle-circle {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2.5px;
+  left: 3px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+body.dark .theme-toggle {
+  background: #444;
+}
+
+body.dark .toggle-circle {
+  left: 27px;
+  background: #ffd43b;
+}
+
+/* ===== WELCOME ===== */
+.welcome {
+  text-align: center;
+  padding: 4rem 10%;
+}
+
+.welcome h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.welcome span {
+  color: var(--primary);
+}
+
+.welcome p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+body.dark .welcome p {
+  color: #cbd5e1;
+}
+
+/* ===== QUICK START & FEATURES ===== */
+.quick-start, .features {
+  padding: 2rem 10%; /* reduced padding for closer spacing */
+  text-align: center;
+}
+
+.quick-start h2, .features h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem; /* reduced margin */
+}
+
+.quick-start {
+  margin-top: -20px; /* move section slightly upwards */
+}
+
+/* Card Container */
+.cards {
+  display: flex;
+  justify-content: center; /* center all cards */
+  align-items: stretch;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+/* Card Styles */
+.card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px var(--shadow);
+  width: 230px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.dark .card {
+  background: #1e293b;
+}
+
+.card h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.dark .card p {
+  color: #e2e8f0;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Quick Start Button */
+.quick-start button {
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.quick-start button:hover {
+  background: #1d4ed8;
+}
+
+/* ===== SECURITY ===== */
+.security {
+  padding: 3rem 10%;
+  text-align: center;
+}
+
+.security h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.security ul {
+  list-style: none;
+  display: inline-block;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.security li {
+  margin-bottom: 0.5rem;
+}
+
+/* ===== UPLOAD BOX ===== */
+.upload-box {
+  margin: 40px auto;
+  padding: 50px;
+  width: 450px;
+  border: 2px dashed var(--primary);
+  border-radius: 15px;
+  text-align: center;
+  background: var(--card-bg);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.upload-box p {
+  margin-bottom: 15px;
+}
+
+/* ===== PROFILE ===== */
+.profile {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.profile-header {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.avatar {
+  font-size: 80px;
+  margin-bottom: 10px;
+}
+
+.role {
+  font-size: 1rem;
+  color: gray;
+}
+
+body.dark .role {
+  color: #ccc;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 20px 0;
+}
+
+.stat {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 15px;
+  width: 220px;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+/* Account info */
+.account-info {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 15px;
+  width: 85%;
+  margin: 30px auto;
+  box-shadow: 0 4px 12px var(--shadow);
+  text-align: center;
+}
+
+.badge {
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #fff;
+  margin: 5px;
+  display: inline-block;
+}
+
+.premium { background: var(--primary); }
+.verified { background: #22c55e; }
+
+/* ===== ANALYSIS PAGE ===== */
+.analysis {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.analysis-card {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: transform 0.2s, background 0.3s, color 0.3s;
+}
+
+.analysis-card:hover {
+  transform: translateY(-6px);
+}
+
+.analysis-card h2 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: var(--primary);
+}
+
+.analysis-card p,
+.analysis-card li {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.progress {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 10px;
+  transition: width 0.4s ease-in-out;
+}
+
+body.dark .analysis-card {
+  background: #2d3b55;
+  color: #f5f7fa;
+}
+
+body.dark .progress-bar {
+  background: #444;
+}
+
+body.dark .progress {
+  background: #22c55e;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .quick-start .card,
+  .features .card,
+  .stat {
+    width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar ul {
+    gap: 1rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .quick-start .card,
+  .features .card,
+  .stat {
+    width: 100%;
+  }
+}
+/* Card Styles */
+.card {
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px var(--shadow);
+  width: 200px; /* reduced from previous 230px */
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+/* Card Images */
+.card img {
+  width: 100%;
+  height: 120px; /* slightly smaller to fit in smaller card */
+  object-fit: cover; /* image fills the frame */
+  border-radius: 12px 12px 0 0;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.card img:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s;
+}
+
+/* Card Titles and Text */
+.card h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.card h3 {
+  margin-bottom: 0.4rem;
+  color: var(--primary);
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.dark .card {
+  background: #1e293b;
+}
+
+.dark .card p {
+  color: #e2e8f0;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .quick-start .card,
+  .features .card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .quick-start .card,
+  .features .card {
+    width: 100%;
+  }
+}
+
+
+
+/* ===== ROOT VARIABLES ===== */
+:root {
+  --primary: #2563eb; /* main highlight color */
+  --background: linear-gradient(135deg, #dbeafe, #93c5fd, #60a5fa); /* bluish gradient */
+  --text: #1e293b;
+  --card-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body.dark {
+  --background: linear-gradient(135deg, #1e3a8a, #1e40af, #2563eb); /* darker bluish gradient */
+  --text: #f5f7fa;
+  --card-bg: #2d3b55;
+  --shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* ===== BODY ===== */
+body {
+  background: var(--background);
+  color: var(--text);
+  transition: background 0.5s, color 0.5s;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 5%;
+  background: linear-gradient(90deg, #2563eb, #1e40af, #3b82f6); /* vibrant bluish gradient */
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-radius: 0 0 12px 12px;
+}
+
+.navbar .logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #dbeafe;
+}
+
+.navbar ul li a.active {
+  border-bottom: 2px solid #fff;
+}
+
+/* Dark Mode Navbar */
+body.dark .navbar {
+  background: linear-gradient(90deg, #1e3a8a, #1e40af, #2563eb);
+}
+
+/* ===== Analysis Page Styles ===== */
+.analysis-tool {
+  max-width: 800px;
+  margin: 3rem auto;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.image-preview-container {
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+  margin: 1rem auto;
+  border: 2px dashed #2563eb;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f4ff;
+  overflow: hidden;
+}
+
+.image-preview-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: none;
+}
+
+.upload-box {
+  margin-top: 2rem;
+}
+
+/* --- Choose Image Button Style --- */
+
+.upload-box .custom-file-upload {
+    display: inline-block;     /* Layout */
+    padding: 12px 30px;       /* Sizing */
+    min-width: 200px;         /* Sizing */
+    border: none;             /* Appearance */
+    border-radius: 8px;       /* Appearance */
+    cursor: pointer;          /* Interaction */
+    font-weight: 600;         /* Text */
+    font-size: 1rem;          /* Text */
+    text-align: center;       /* Text */
+    transition: background-color 0.2s, transform 0.1s; /* Effects */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Effects */
+
+    /* Colors - Light Mode */
+    background-color: #4338CA;
+    color: white;
+
+    margin-bottom: 0;         /* Spacing handled by parent gap */
+}
+
+/* Hover state - Light Mode */
+.upload-box .custom-file-upload:hover {
+    background-color: #4338CA; /* Slightly darker primary color */
+}
+
+/* Active (click) state - Light & Dark */
+.upload-box .custom-file-upload:active {
+    transform: scale(0.98); /* Press effect */
+}
+
+body.dark .upload-box .custom-file-upload {
+     background-color: #1e40af; /* Lighter hover for dark theme */
+     /* Background color in dark mode is inherited from base rule */
+}
+
+/* Hover state - Dark Mode */
+body.dark .upload-box .custom-file-upload:hover {
+     background-color: #0f2563; /* Lighter hover for dark theme */
+     /* Background color in dark mode is inherited from base rule */
+}
+
+/* Hide the actual file input element */
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+
+.analyze-btn, .pdf-btn {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 8px;
+  background: #1e40af;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.analyze-btn:hover, .pdf-btn:hover {
+  background: #0f2563;
+}
+
+#result {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+
+/* --- Login Page Styles --- */
+.login-container {
+  background: white;
+  padding: 2rem 2.5rem; /* More padding */
+  border-radius: 1rem; /* Rounded corners */
+  width: 100%;
+  max-width: 400px; /* Limit width */
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  margin: 1rem;
+}
+
+.login-header {
+  margin-bottom: 1.5rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Space between inputs/buttons */
+}
+
+.login-input {
+  width: 100%;
+  padding: 0.9rem; /* Slightly more padding */
+  border-radius: 0.5rem; /* Less rounded */
+  border: 1px solid #D1D5DB; /* Gray border */
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #4F46E5; /* Indigo border on focus */
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.3); /* Indigo ring on focus */
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600; /* Semibold */
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border: none;
+}
+
+.login-button.primary {
+  background-color: #4F46E5; /* Indigo */
+  color: white;
+  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
+}
+.login-button.primary:hover {
+  background-color: #4338CA; /* Darker Indigo */
+}
+
+.login-button.secondary {
+  background-color: #EEF2FF; /* Light Indigo */
+  color: #4F46E5; /* Indigo */
+}
+.login-button.secondary:hover {
+  background-color: #E0E7FF; /* Slightly darker */
+}
+
+.login-button.tertiary {
+  background-color: transparent;
+  color: #6B7280; /* Gray */
+}
+.login-button.tertiary:hover {
+  color: #4F46E5; /* Indigo on hover */
+}
+
+.flash-error {
+  background-color: #FEE2E2; /* Light red */
+  color: #DC2626; /* Dark red */
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.logout-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.5rem;
+  background-color: #EF4444; /* Red */
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+.logout-button:hover {
+  background-color: #DC2626; /* Darker Red */
+}
+
+/* --- Profile Page Styles --- */
+
+/* Main profile section padding and centering */
+.profile {
+  padding: 2rem 5%;
+  max-width: 900px; /* Limit width */
+  margin: 2rem auto; /* Center on page */
+}
+
+/* Header styling */
+.profile-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.profile-header .avatar {
+  font-size: 4rem; /* Larger avatar */
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+.profile-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+.profile-header .role {
+  color: var(--text-color-light); /* Lighter text for role */
+  font-size: 1rem;
+}
+
+/* "Your Stats" heading */
+.profile-stats h1 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Container for the stat boxes */
+.stats {
+  display: grid; /* Use grid for alignment */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive columns */
+  gap: 1.5rem; /* Space between boxes */
+  margin-bottom: 3rem;
+  /* Removed background, shadow, padding from container */
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Individual stat box styling */
+.stat {
+  background: var(--card-bg); /* Use card background for each box */
+  padding: 1.5rem;
+  border-radius: 10px; /* More rounded */
+  text-align: center;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  color: var(--text-color);
+  transition: transform 0.2s ease-in-out;
+}
+.stat:hover {
+    transform: translateY(-5px); /* Add a slight lift on hover */
+}
+.stat h3 { /* Styling for the stat label */
+    font-size: 1rem;
+    font-weight: 500; /* Medium weight */
+    color: var(--text-color-light); /* Lighter label text */
+    margin-bottom: 0.75rem;
+}
+.stat strong { /* Styling for the stat number */
+  display: block;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-top: 0rem;
+  color: var(--primary-color);
+}
+
+/* Account info section */
+.account-info {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  max-width: 500px; /* Narrower box */
+  margin-left: auto; /* Center the box */
+  margin-right: auto;
+}
+.account-info p {
+  margin-bottom: 1rem; /* Increase spacing */
+  color: var(--text-color); /* Standard text color */
+  font-size: 1rem; /* Increase font size */
+}
+.account-info p strong {
+  color: var(--primary-color); /* Highlight the value */
+  font-weight: 600; /* Make value semibold */
+}
+
+/* Badge styling */
+.badge {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border-radius: 1rem;
+  font-size: 0.85rem; /* Slightly larger badge text */
+  font-weight: 500;
+  margin: 0.3rem 0.3rem;
+  line-height: 1;
+}
+.badge.premium { background-color: gold; color: #333; border: 1px solid #e6c300;}
+.badge.verified { background-color: #2ecc71; color: white; border: 1px solid #27ae60;}
+/* Dark mode fix for premium badge */
+body.dark .badge.premium { color: #333; }
+
+/* Logout button styling */
+.logout-button {
+  display: inline-block;
+  margin-top: 1.5rem; /* More space above */
+  padding: 0.8rem 1.8rem; /* Slightly larger */
+  background-color: #e74c3c; /* Red */
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+.logout-button:hover {
+  background-color: #c0392b; /* Darker Red */
+}
+
+/* Raw Data Log section styling */
+.raw-data-log {
+  background: var(--card-bg); /* Box around the whole log section */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-top: 3rem; /* Space above the log */
+}
+.raw-data-log h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+.raw-data-log p { /* Subtitle */
+  text-align: center;
+  color: var(--text-color-light);
+  margin-bottom: 1.5rem;
+}
+
+/* Table container styling */
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Horizontal scroll */
+  background: var(--bg-color-light); /* Background for the table area */
+  border-radius: 8px;
+  padding: 0; /* No padding on container */
+  border: 1px solid var(--border-color); /* Border around table */
+  box-shadow: none; /* No shadow on container */
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+th, td {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+  white-space: nowrap; /* Prevent wrapping initially */
+}
+th { /* Table header */
+  background-color: var(--bg-color); /* Slightly different bg */
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: var(--text-color-light);
+}
+tbody tr:last-child td { /* Remove bottom border on last row */
+  border-bottom: none;
+}
+tbody tr:hover { /* Row hover effect */
+  background-color: var(--bg-color);
+}
+/* Allow wrapping for specific long columns */
+td:nth-child(5), /* Final Prediction column */
+td:nth-child(3)  /* Filename column */
+{
+  white-space: normal;
+}
+
+/* Text color for predictions in table */
+.stego-text {
+  color: #e74c3c; /* Red */
+  font-weight: bold;
+}
+.clean-text {
+  color: #27ae60; /* Green */
+  font-weight: bold;
+}
+
+/* --- Dark Mode Adjustments for Profile --- */
+body.dark .stat {
+   background: #374151; /* Darker background for stat boxes */
+   color: #f3f4f6; /* Lighter text */
+   border-color: #4b5563;
+}
+body.dark .stat strong {
+    color: #818cf8; /* Lighter primary color */
+}
+body.dark .account-info {
+    background: #374151;
+}
+body.dark .raw-data-log {
+    background: #374151;
+}
+body.dark .table-container {
+    background: #2b3748; /* Darker table area */
+    border-color: #4b5563;
+}
+body.dark th {
+    background-color: #4b5563; /* Darker header */
+    color: #d1d5db;
+}
+body.dark th, body.dark td {
+    border-color: #4b5563; /* Darker borders */
+    color: #f3f4f6; /* Light text */
+}
+body.dark tbody tr:hover {
+  background-color: #4b5563; /* Darker hover */
+}
+
+/* --- Profile Header Avatar Circle (Updated Colors) --- */
+.profile-header .avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  /* Light Mode: Light grey background, primary color icon */
+  background-color: #e5e7eb; /* Light grey */
+  color: var(--primary-color); /* Theme color icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  line-height: 1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Lighter shadow */
+  border: 2px solid var(--border-color); /* Add a subtle border */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transitions */
+}
+
+/* Dark Mode: Darker grey background, lighter primary color icon */
+body.dark .profile-header .avatar {
+    background-color: #4b5563; /* Darker grey */
+    color: var(--primary-color); /* Lighter theme color icon */
+    border-color: #6b7280; /* Adjust border for dark mode */
+}
+
+/* --- Dark Mode Refinements for Analysis Page --- */
+
+body.dark .analysis-tool {
+  background: var(--card-bg); /* Use the dark card background */
+  /* Keep existing styles like padding, border-radius, shadow */
+}
+
+body.dark .analysis-tool h1 {
+  color: var(--text-color); /* Use the main light text color for the heading */
+}
+
+/* Ensure other elements inside have correct dark mode colors */
+body.dark .image-preview-container {
+    background-color: var(--bg-color); /* Darker preview bg */
+    border-color: var(--border-color);
+}
+
+body.dark .upload-box {
+    background: var(--card-bg); /* Match the analysis-tool background */
+    box-shadow: 0 4px 15px var(--shadow); /* Use dark shadow */
+}
+
+body.dark .custom-file-upload {
+    background-color: var(--primary-color);
+    color: #fff; /* Ensure text is white */
+}
+body.dark .custom-file-upload:hover {
+    background-color: #6366f1; /* Lighter hover for dark */
+}
+
+
+body.dark .analyze-btn,
+body.dark .pdf-btn {
+    /* Keep button colors or adjust if needed for contrast */
+    color: white;
+}
+
+/* Make sure the result text area adapts */
+body.dark #result h3 { /* Loading/Error messages */
+    color: var(--text-color);
+}
+body.dark .result-section {
+    background: var(--bg-color-light); /* Slightly lighter than card bg */
+    border-color: var(--border-color);
+}
+
+body.dark .result-section h2 {
+    color: var(--primary-color);
+}
+body.dark .result-section p {
+    color: var(--text-color); /* Ensure prediction text is light */
+}
+body.dark .message-box {
+    background: var(--bg-color);
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+body.dark .lsb-maps-container figcaption {
+    color: var(--text-color-light);
+}
+body.dark .lsb-maps-container img {
+    border-color: var(--border-color);
+}
+
